@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { collection, query, getDocs } from "firebase/firestore";
+import React, { useState } from 'react';
+import { collection, query, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { FIREBASE_DB } from "./firebaseConfig";
+import { useNavigate } from "react-router-dom";
 
-import { doc, getDoc } from "firebase/firestore";
 
 function List() {
+  const navigate = useNavigate();
+
   const [stories, setStories] = useState([]);
 
   const getSomething = async () => {
+    return;
     {/*
         const docRef = doc(FIREBASE_DB, "allstories", "fFn9W2EGNal5a4KZo4wI");
         const docSnap = await getDoc(docRef);
@@ -24,24 +27,28 @@ function List() {
     const querySnapshot = await getDocs(q);
     const storiesArray = [];
     querySnapshot.forEach((doc) => {
-      storiesArray.push(doc.data());
+      storiesArray.push({ firestoreId: doc.id, ...doc.data()});
     });
     setStories(storiesArray);
   }
 
+  const deleteStory = async (firestoreId) => {
+    const storyRef = doc(FIREBASE_DB, "allstories", firestoreId);
+    await deleteDoc(storyRef);
+    getAllStories();
+  }
+
   return (
-    <div>
+    <div className='titleContainer'>
       <h1>List of Stories</h1>
-      <ul>
-        {stories.map((story, index) => (
-          <li key={index}>
-            <h2>{story.title}</h2>
-            <p>{story.text}</p>
-            <p>Words: {story.words}</p>
-          </li>
-        ))}
-      </ul>
+      {stories.map((story, index) => (
+        <div key={index} className='listContainer'>
+          <h2 onClick={ () => navigate("/") } className='titleHeaders'>{story.title}</h2>
+          <img src="/trash3.svg" alt="Trash icon" className='trashIcon' onClick={() => deleteStory(story.firestoreId)} />
+        </div>
+      ))}
       <button onClick={getAllStories}>DISPLAY STORIES</button>
+      
     </div>
   );
 }

@@ -97,3 +97,18 @@ html, body {
 .submit-btn:hover {
   background-color: #4782c2;
 }
+.titleContainer {
+  margin-left: 30px;
+}
+.titleHeaders {
+  cursor: pointer;
+}
+.trashIcon {
+  width: 20px;
+}
+.listContainer{
+  display: flex;
+  flex-direction: row;
+  width: 30vw;
+  justify-content: space-between;
+}
