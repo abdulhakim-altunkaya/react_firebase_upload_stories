@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function List() {
   const navigate = useNavigate();
-
+ 
   const [stories, setStories] = useState([]);
 
   const getSomething = async () => {
@@ -43,12 +43,14 @@ function List() {
       <h1>List of Stories</h1>
       {stories.map((story, index) => (
         <div key={index} className='listContainer'>
-          <h2 onClick={ () => navigate("/") } className='titleHeaders'>{story.title}</h2>
+          <h2 onClick={ () => navigate(`/detail/${story.firestoreId}`) } className='titleHeaders'>{story.title}</h2>
           <img src="/trash3.svg" alt="Trash icon" className='trashIcon' onClick={() => deleteStory(story.firestoreId)} />
         </div>
       ))}
-      <button onClick={getAllStories}>DISPLAY STORIES</button>
-      
+      <div className='buttonContainer'>
+        <button className='button11' onClick={getAllStories}>DISPLAY STORIES</button>
+        <button className='button11' onClick={() => navigate("/add")}>ADD STORIES</button>
+      </div>
     </div>
   );
 }

@@ -2,18 +2,20 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Routes } from  "react-router-dom";
 import InputForm from "./InputForm";
 import List from "./List";
+import Detail from "./Detail";
 
 function App() {
 
   return (
 
-    <div className="App">
+    <div className="App"> 
 
       <Router>
         
         <Routes>
-          <Route path="/" element={ <InputForm /> } />
-          <Route path="/list" element={ <List /> } />
+          <Route path="/" element={ <List /> } />
+          <Route path="/add" element={ <InputForm /> } />
+          <Route path="/detail/:firestoreId" element={ <Detail /> } />
         </Routes>
 
       </Router>
