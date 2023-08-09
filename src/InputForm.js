@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './styles.css';
 import {FIREBASE_DB} from "./firebaseConfig";
 import { addDoc, collection, deleteDoc, updateDoc, onSnapshot, doc  } from 'firebase/firestore';
 
 const InputForm = () => {
+
+  const navigate = useNavigate();
 
   const generateRandomString = (length = 7) => {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -50,6 +53,7 @@ const InputForm = () => {
 
   return (
     <form className="form" onSubmit={submitForm}>
+      <h1>ADD A NEW STORY</h1>
       <div className="input-wrapper">
         <label className="label" htmlFor="title">Title</label>
         <input 
@@ -83,7 +87,11 @@ const InputForm = () => {
           value={formData.words}
           onChange={handleChange}/>
       </div>
-      <button type="submit" className="submit-btn">Submit</button>
+      
+      <div className='buttonContainer2'>
+          <button type="submit" className="button11">SAVE STORY</button>
+          <button className='button11' onClick={() => navigate("/")}>HOMEPAGE</button>
+      </div>
     </form>
 
   );
