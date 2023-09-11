@@ -21,7 +21,9 @@ const InputForm = () => {
   const [formData, setFormData] = useState({
     title: "",
     text: "",
-    words: "",
+    word1: "",
+    word2: "",
+    word3: ""
   });
 
   const handleChange = (e) => {
@@ -45,7 +47,9 @@ const InputForm = () => {
       title: formData.title,
       text: formData.text,
       id: randomString,
-      words: formData.words
+      word1: formData.word1,
+      word2: formData.word2,
+      word3: formData.word3
     });
     
   }
@@ -77,17 +81,38 @@ const InputForm = () => {
           onChange={handleChange}/>
       </div>
       <div className="input-wrapper">
-        <label className="label" htmlFor="words">Words</label>
+        <label className="label" htmlFor="word1">Word1</label>
         <textarea
           className="input-textarea"
-          id="words"
-          name="words"
-          rows="5"
-          placeholder="Enter words..."
-          value={formData.words}
+          id="word1"
+          name="word1"
+          rows="2"
+          placeholder="Enter word 1"
+          value={formData.word1}
           onChange={handleChange}/>
-      </div>
-      
+      </div> 
+      <div className="input-wrapper">
+        <label className="label" htmlFor="word2">Word2</label>
+        <textarea
+          className="input-textarea"
+          id="word2"
+          name="word2"
+          rows="2"
+          placeholder="Enter word 2"
+          value={formData.word2}
+          onChange={handleChange}/>
+      </div> 
+      <div className="input-wrapper">
+        <label className="label" htmlFor="word3">Word3</label>
+        <textarea
+          className="input-textarea"
+          id="word3"
+          name="word3"
+          rows="2"
+          placeholder="Enter word 3"
+          value={formData.word3}
+          onChange={handleChange}/>
+      </div>    
       <div className='buttonContainer2'>
           <button type="submit" className="button11">SAVE STORY</button>
           <button className='button11' onClick={() => navigate("/")}>HOMEPAGE</button>

@@ -13,8 +13,9 @@ function Detail() {
     const [targetDoc, setTargetDoc] = useState({});
     const [titleText, setTitleText] = useState("");
     const [mainText, setMainText] = useState("");
-    const [wordsText, setWordsText] = useState("");
-
+    const [word1Text, setWord1Text] = useState("");
+    const [word2Text, setWord2Text] = useState("");
+    const [word3Text, setWord3Text] = useState("");
     //2. grab the target story data and put it inside the input fields
     useEffect(() => {
         const fetchDoc = async () => {
@@ -24,7 +25,9 @@ function Detail() {
             setTargetDoc(docData);
             setTitleText(docData.title);
             setMainText(docData.text);
-            setWordsText(docData.words);
+            setWord1Text(docData.word1Text);
+            setWord2Text(docData.word2Text);
+            setWord3Text(docData.word3Text);
         };
         fetchDoc();
     }, [firestoreId]);
@@ -35,7 +38,9 @@ function Detail() {
         const data = {
             title: titleText,
             text: mainText,
-            words: wordsText
+            word1: word1Text,
+            word2: word2Text,
+            word3: word3Text,
           };
         await setDoc(storyRef, data)
         navigate("/");
@@ -68,15 +73,37 @@ function Detail() {
                     onChange={(e) => setMainText(e.target.value)}/>
             </div>
             <div className="input-wrapper">
-                <label className="label" htmlFor="words">Words</label>
+                <label className="label" htmlFor="word1Text">Word1</label>
                 <textarea
                     className="input-textarea"
-                    id="words"
-                    name="words"
-                    rows="5"
-                    placeholder="Enter words..."
-                    value={wordsText}
-                    onChange={(e) => setWordsText(e.target.value)}/>
+                    id="word1Text"
+                    name="word1Text"
+                    rows="2"
+                    placeholder="Enter word 1"
+                    value={word1Text}
+                    onChange={(e) => setWord1Text(e.target.value)}/>
+            </div>
+            <div className="input-wrapper">
+                <label className="label" htmlFor="word2Text">Word2</label>
+                <textarea
+                    className="input-textarea"
+                    id="word2Text"
+                    name="word2Text"
+                    rows="2"
+                    placeholder="Enter word 2"
+                    value={word2Text}
+                    onChange={(e) => setWord2Text(e.target.value)}/>
+            </div>
+            <div className="input-wrapper">
+                <label className="label" htmlFor="word3Text">Word3</label>
+                <textarea
+                    className="input-textarea"
+                    id="word3Text"
+                    name="word3Text"
+                    rows="2"
+                    placeholder="Enter word 3"
+                    value={word3Text}
+                    onChange={(e) => setWord3Text(e.target.value)}/>
             </div>
             <div className='buttonContainer2'>
                 <button type='submit' className='button11'>SAVE CHANGES</button>
