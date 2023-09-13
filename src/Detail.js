@@ -74,8 +74,8 @@ function Detail() {
             </div>
             <div className="input-wrapper">
                 <label className="label" htmlFor="word1Text">Word1</label>
-                <textarea
-                    className="input-textarea"
+                <input 
+                    className="input-text" 
                     id="word1Text"
                     name="word1Text"
                     rows="2"
@@ -85,8 +85,8 @@ function Detail() {
             </div>
             <div className="input-wrapper">
                 <label className="label" htmlFor="word2Text">Word2</label>
-                <textarea
-                    className="input-textarea"
+                <input 
+                    className="input-text" 
                     id="word2Text"
                     name="word2Text"
                     rows="2"
@@ -96,8 +96,8 @@ function Detail() {
             </div>
             <div className="input-wrapper">
                 <label className="label" htmlFor="word3Text">Word3</label>
-                <textarea
-                    className="input-textarea"
+                <input 
+                    className="input-text" 
                     id="word3Text"
                     name="word3Text"
                     rows="2"

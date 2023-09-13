@@ -82,8 +82,8 @@ const InputForm = () => {
       </div>
       <div className="input-wrapper">
         <label className="label" htmlFor="word1">Word1</label>
-        <textarea
-          className="input-textarea"
+        <input 
+          className="input-text" 
           id="word1"
           name="word1"
           rows="2"
@@ -93,8 +93,8 @@ const InputForm = () => {
       </div> 
       <div className="input-wrapper">
         <label className="label" htmlFor="word2">Word2</label>
-        <textarea
-          className="input-textarea"
+        <input 
+          className="input-text" 
           id="word2"
           name="word2"
           rows="2"
@@ -104,8 +104,8 @@ const InputForm = () => {
       </div> 
       <div className="input-wrapper">
         <label className="label" htmlFor="word3">Word3</label>
-        <textarea
-          className="input-textarea"
+        <input 
+          className="input-text" 
           id="word3"
           name="word3"
           rows="2"
